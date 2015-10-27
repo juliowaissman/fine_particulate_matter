@@ -11,7 +11,7 @@ SCC <- readRDS("Source_Classification_Code.rds")
 
 #Tidyng data
 coal.list <- SCC[grepl("Coal", SCC$Short.Name), ]$SCC
-NEI.coal <- NEI[NEI$SCC %in% coal.list]
+NEI.coal <- NEI[NEI$SCC %in% coal.list, ]
 library(plyr)
 tidy.data <- ddply(NEI.coal, ~year, summarise, total=sum(Emissions))
 
